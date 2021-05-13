@@ -1,9 +1,47 @@
+from core.admin import admin_site
 from django.contrib import admin
 from .models import User, Role, Log, State, Link
 
 # Register your models here.
-admin.site.register(User)
-admin.site.register(Role)
-admin.site.register(Log)
-admin.site.register(State)
-admin.site.register(Link)
+class UserAdmin(admin.ModelAdmin):
+    list_display = (
+        'fb_id',
+        'state',
+        'subscribed',
+        'role'
+    )
+
+
+class RoleAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+    )
+
+
+class LogAdmin(admin.ModelAdmin):
+    list_display = (
+        'log',
+    )
+
+
+class StateAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'label',
+        'parent',
+        'function',
+        'is_input'
+    )
+
+
+class LinkAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'button_label'
+    )
+
+admin_site.register(User, UserAdmin)
+admin_site.register(Role, RoleAdmin)
+admin_site.register(Log, LogAdmin)
+admin_site.register(State, StateAdmin)
+admin_site.register(Link, LinkAdmin)
