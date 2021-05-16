@@ -10,8 +10,10 @@ class User(models.Model):
 
 class Link(models.Model):
     name = models.TextField()
-    discription = models.TextField(null=True, blank=True)
-    button_label = models.TextField(null=True, blank=True)
+    title = models.TextField()
+    discription = models.TextField()
+    button_label = models.TextField()
+    img_url = models.TextField()
     url = models.TextField()
 
 
@@ -32,3 +34,8 @@ class State(models.Model):
 
 class Role(models.Model):
     name = models.CharField(max_length=8)
+
+
+class Contact(models.Model):
+    fb_id = models.TextField()
+    contact = models.JSONField()
