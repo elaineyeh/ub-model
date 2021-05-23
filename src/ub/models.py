@@ -24,12 +24,13 @@ class Log(models.Model):
 class State(models.Model):
     name = models.CharField(max_length=128)
     label = models.TextField(null=True, blank=True)
+    prompt = models.TextField(null=True, blank=True, default=None)
     parent = models.ForeignKey("State", on_delete=models.CASCADE, null=True, blank=True)
     function = models.CharField(max_length=64, blank=True)
     is_input = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.label
+        return self.name + " " + self.label
 
 
 class Role(models.Model):
