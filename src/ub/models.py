@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class User(models.Model):
     fb_id = models.TextField()
     state = models.ForeignKey("State", on_delete=models.SET_NULL, null=True, default=None, blank=True)
@@ -40,3 +41,22 @@ class Role(models.Model):
 class Contact(models.Model):
     fb_id = models.TextField()
     contact = models.JSONField()
+
+
+class Activity(models.Model):
+    activity_id = models.IntegerField()
+    activity_name = models.TextField()
+    unit_name = models.TextField()
+    apply_qualification_list = models.JSONField()
+    apply_start_date = models.DateTimeField()
+    apply_start_time = models.DateTimeField()
+    apply_end_date = models.DateTimeField()
+    apply_end_time = models.DateTimeField()
+    post_start_time = models.DateTimeField()
+    post_end_time = models.DateTimeField()
+    activity_period_list = models.JSONField()
+
+
+class UserActivity(models.Model):
+    fb_id = models.TextField()
+    activity = models.JSONField()
