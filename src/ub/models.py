@@ -15,7 +15,7 @@ class Link(models.Model):
     discription = models.TextField()
     button_label = models.TextField()
     img_url = models.TextField()
-    url = models.TextField()
+    url = models.TextField(null=True, blank=True, default=None)
 
 
 class Log(models.Model):
@@ -27,7 +27,7 @@ class State(models.Model):
     label = models.TextField(null=True, blank=True)
     prompt = models.TextField(null=True, blank=True, default=None)
     parent = models.ForeignKey("State", on_delete=models.CASCADE, null=True, blank=True)
-    function = models.CharField(max_length=64, blank=True)
+    function = models.CharField(max_length=64, blank=True, null=True)
     is_input = models.BooleanField(default=False)
 
     def __str__(self):
