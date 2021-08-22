@@ -60,3 +60,7 @@ class Activity(models.Model):
 class UserActivity(models.Model):
     fb_id = models.TextField()
     activity = models.JSONField()
+
+
+class ContactList(models.Model):
+    name = models.TextField()

@@ -1,6 +1,6 @@
 from core.admin import admin_site
 from django.contrib import admin
-from .models import User, Role, Log, State, Link, Contact, Activity, UserActivity
+from .models import ContactList, User, Role, Log, State, Link, Contact, Activity, UserActivity
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -70,6 +70,13 @@ class UserActivityAdmin(admin.ModelAdmin):
     )
 
 
+class ContactListAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'name'
+    )
+
+
 admin_site.register(User, UserAdmin)
 admin_site.register(Role, RoleAdmin)
 admin_site.register(Log, LogAdmin)
@@ -78,3 +85,4 @@ admin_site.register(Link, LinkAdmin)
 admin_site.register(Contact, ContactAdmin)
 admin_site.register(Activity, ActivityAdmin)
 admin_site.register(UserActivity, UserActivityAdmin)
+admin_site.register(ContactList, ContactListAdmin)
