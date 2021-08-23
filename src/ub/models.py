@@ -64,3 +64,7 @@ class UserActivity(models.Model):
 
 class ContactList(models.Model):
     name = models.TextField()
+
+
+class ContactNameList(models.Model):
+    name = models.TextField()
